@@ -1,0 +1,32 @@
+[workspace]
+members = [
+  "snow",
+  "noise",
+]
+resolver = "2"
+
+[workspace.package]
+rust-version = "1.75.0"
+
+[workspace.dependencies]
+libp2p-noise = { version = "0.45.0", path = "noise" }
+asynchronous-codec = { version = "0.7.0" }
+futures = "0.3.30"
+libp2p-core = "0.42.0"
+libp2p-identity = "0.2.9"
+multiaddr = "0.18.1"
+multihash = "0.19.1"
+tracing = "0.1.37"
+quickcheck = { package = "quickcheck-ext", git = "https://github.com/libp2p/rust-libp2p.git" }
+tracing-subscriber = "0.3"
+pqkd = { version = "0.1.0", git = "https://github.com/Quantum-Blockchains/pqkd-client-rust.git" }
+tokio = { version = "1.38", default-features = false }
+
+[workspace.lints]
+rust.unreachable_pub = "warn"
+clippy.used_underscore_binding = "warn"
+clippy.pedantic = { level = "allow", priority = -1 }
+clippy.type_complexity = "allow"
+clippy.unnecessary_wraps = "warn"
+clippy.manual_let_else = "warn"
+clippy.dbg_macro = "warn"
