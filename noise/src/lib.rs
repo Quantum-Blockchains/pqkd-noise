@@ -113,11 +113,7 @@ pub struct Config {
 
 impl Config {
     /// Construct a new configuration for the noise handshake using the XX handshake pattern.
-    pub fn new(
-        identity: &identity::Keypair,
-        sae_id: String,
-        addr_pqkd: String,
-    ) -> Result<Self, Error> {
+    pub fn new(identity: &identity::Keypair, sae_id: &str, addr_pqkd: &str) -> Result<Self, Error> {
         let noise_keys = Keypair::new().into_authentic(identity)?;
 
         Ok(Self {
@@ -125,8 +121,8 @@ impl Config {
             params: PARAMS_XX.clone(),
             webtransport_certhashes: None,
             prologue: vec![],
-            sae_id,
-            addr_pqkd,
+            sae_id: String::from(sae_id),
+            addr_pqkd: String::from(addr_pqkd),
         })
     }
 
