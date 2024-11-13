@@ -1,15 +1,12 @@
 [workspace]
-members = [
-  "snow",
-  "noise",
-]
+members = ["snow", "noise"]
 resolver = "2"
 
 [workspace.package]
 rust-version = "1.75.0"
 
 [workspace.dependencies]
-libp2p-noise = { version = "0.45.0", path = "noise" }
+pqkd-noise = { version = "0.45.0", path = "noise" }
 asynchronous-codec = { version = "0.7.0" }
 futures = "0.3.30"
 libp2p-core = "0.42.0"
